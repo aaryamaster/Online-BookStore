@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Add Book - Bookstore{% endblock %}
+
+{% block content %}
+    <h1>Add Book</h1>
+    <form action="{{ url_for('edit_book', id=-1) }}" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" name="author" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" name="price" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Book</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
