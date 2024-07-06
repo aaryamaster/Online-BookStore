@@ -489,31 +489,29 @@ pymysql
 
     1. In your project directory, create an `app.yaml` file with the following content:
 
-  ``` yaml
+       ``` yaml
         
-runtime: python39
-entrypoint: gunicorn -b :$PORT app:app
+          runtime: python39
+           entrypoint: gunicorn -b :$PORT app:app
 
-instance_class: F2
+           instance_class: F2
 
-env_variables:
-  SQLALCHEMY_DATABASE_URI: "mysql+pymysql://aarya:aarya123@/book?unix_socket=/cloudsql/online-bookstore-428523:us-central1:bookstore"
-  JWT_SECRET_KEY: "your_jwt_secret_key"
+           env_variables:
+                  SQLALCHEMY_DATABASE_URI: "mysql+pymysql://aarya:aarya123@/book?unix_socket=/cloudsql/online-bookstore-428523:us-central1:bookstore"
+                  JWT_SECRET_KEY: "your_jwt_secret_key"
 
-beta_settings:
-  cloud_sql_instances: "online-bookstore-428523:us-central1:bookstore"
+         beta_settings:
+                 cloud_sql_instances: "online-bookstore-428523:us-central1:bookstore"
        
-        ```
-
+           
     2. Deploy your application:
-
-        ```bash
+    
+       ```bash
         gcloud app deploy
         ```
+    3. Access your deployed application at `https://<your-project-id>.appspot.com`.
 
-5. Access your deployed application at `https://<your-project-id>.appspot.com`.
 
-```
 
 # Screenshot of the website
 
