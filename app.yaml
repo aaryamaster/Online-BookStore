@@ -1,0 +1,11 @@
+runtime: python39  # or the appropriate Python runtime version you're using
+entrypoint: gunicorn -b :$PORT app:app
+
+instance_class: F2
+
+env_variables:
+  SQLALCHEMY_DATABASE_URI: "aarya:aarya123@online-bookstore-428523:us-central1:book"
+  JWT_SECRET_KEY: "your_jwt_secret_key"
+
+beta_settings:
+  cloud_sql_instances: "online-bookstore-428523:us-central1:book"
